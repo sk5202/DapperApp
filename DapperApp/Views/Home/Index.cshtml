@@ -1,0 +1,52 @@
+﻿@model IList<DapperApp.Domain.Entities.User>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+   
+    <form asp-controller="Home" asp-action="Save">
+        <input type="text" name="Name" id="Name" placeholder="Enter Name" />
+        <input type="submit" value="submit"/>
+    </form>
+
+
+    <h2>Employee List</h2>
+
+    <table>
+        <tr>
+            <th>Guid</th>
+            <th>Name</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+             
+            </tr>
+        }
+    </table>
+
+
+</div>
